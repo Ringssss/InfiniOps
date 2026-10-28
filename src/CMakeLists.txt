@@ -642,6 +642,10 @@ if(WITH_NVIDIA)
     list(APPEND _infini_ops_smoke_ops cutlass_scaled_mm moe_sum)
 endif()
 
+if(WITH_NVIDIA AND WITH_NINETOOTHED)
+    list(APPEND _infini_ops_smoke_ops fused_add_rms_norm)
+endif()
+
 if(((WITH_NVIDIA OR WITH_MOORE) AND WITH_TORCH) OR WITH_ILUVATAR)
     list(APPEND _infini_ops_smoke_ops flash_attn_varlen_func)
 endif()
